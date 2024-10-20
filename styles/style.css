@@ -39,6 +39,7 @@ main {
   flex: 1;
   order: 2;
   text-align: right;
+  cursor: pointer;
 }
 
 .timer {
@@ -106,6 +107,10 @@ main {
   transition: background-color 0.25s;
 }
 
+.game__box--guess {
+  cursor: pointer;
+}
+
 .desc {
   margin-top: 55px;
   color: #fff;
@@ -121,6 +126,7 @@ main {
   color: #4E538D;
   text-decoration: none;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .hidden {
@@ -205,6 +211,7 @@ main {
   right: 15px;
   top: 15px;
   fill: white;
+  cursor: pointer;
 }
 
 .form__status {

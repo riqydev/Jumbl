@@ -321,7 +321,9 @@ function startGame() {
 const modalContainer = document.querySelector(".modal__container");
 
 function openLoginModal(){
-    modalContainer.style.display = "flex";
+    if (!gameStarted) {
+        modalContainer.style.display = "flex";
+    }
 }
 
 function closeModal(){
@@ -372,12 +374,14 @@ const nameofPlayerBox = document.querySelector(".nameofPlayer");
 const sideMenuContainer = document.querySelector(".side-menu-container");
 
 function openMenu(){
-    if (sideMenuContainer.classList.contains("hidden"))
-    {
-        sideMenuContainer.classList.remove("hidden");
-    } else 
-    {
-        sideMenuContainer.classList.add("hidden")
+    if (!gameStarted) {
+        if (sideMenuContainer.classList.contains("hidden"))
+        {
+            sideMenuContainer.classList.remove("hidden");
+        } else 
+        {
+            sideMenuContainer.classList.add("hidden")
+        }
     }
 }
 
@@ -390,7 +394,7 @@ async function loadLoginState() {
     if (!token) {
         descStateChange.innerHTML = `You are currently playing as a guest. If you want to submit your score to the leaderboard, you will need to <a onclick="openLoginModal()">Login</a>`
         nameofPlayerBox.innerText = "Guest";
-        nameofPlayerBox.removeAttribute("onClick");
+        nameofPlayerBox.setAttribute("onClick", "openLoginModal()");
         sideMenuContainer.classList.add("hidden");
     } else {
         const response = await verifyToken(token);
