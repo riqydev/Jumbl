@@ -18,7 +18,7 @@ function refresh() {
 }
 
 function goToGame() {
-    window.location.assign("./index.html")
+    window.location.assign("./")
 }
 
 async function populateLeaderboard(){
