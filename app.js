@@ -68,7 +68,7 @@ function scrambleWord() {
 function newWord() {
     currentWords = [];
     let currentWord = scrambleWord();
-    console.log("The answer is: " + currentWord[0]);
+    //console.log("The answer is: " + currentWord[0]);
     resetInput();
     wb1.style.color = "#fff";
     wb2.style.color = "#fff";
@@ -414,7 +414,6 @@ async function verifyToken(token) {
         })
         const data = await response.json();
         if(data.message === "token is valid") {
-            console.log(data.message + " for: " + data.username)
             await loadPB(token);
             return data;
         } else {
