@@ -230,7 +230,7 @@ function newGame() {
         if (currentTime >=30) {
             timerBox.className = "timer safe";
         } 
-        if (currentTime <=21) {
+        if (currentTime < 30) {
             timerBox.className = "timer less-safe";
         }
         if (currentTime <=13) {
