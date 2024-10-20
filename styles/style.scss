@@ -1,0 +1,296 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+@import "variables";
+
+body{
+    background-color: $bg-color;
+    height:100dvh;
+    display:flex;
+    justify-content: center;
+    font-family: "Montserrat";
+    overflow-y: hidden;
+}
+
+main{
+    max-width:22.1875rem;
+}
+
+.score-stuff{
+    min-height:59px;
+    width:100%;
+    max-width: 760px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:30px;
+    font-weight:700;
+    font-size: 1.3rem;
+    color:#fff;
+}
+
+.score{
+    flex: 1;
+    order: 0;
+}
+
+.nameofPlayer{
+    flex: 1;
+    order: 2;
+    text-align: right;
+}
+
+.timer{
+    flex: 1;
+    order: 1;
+    text-align:center;
+}
+
+.timer.safe{
+    color: #60ff80;
+    transition: color 1s;
+}
+
+.timer.less-safe{
+    //color: rgb(233, 255, 91);
+    color: #fff;
+    transition: color 1s;
+}
+
+.timer.unsafe{
+    color: rgb(255, 2, 2);
+    transition: color 3s;
+}
+
+.game__container{
+    font-size: 2.375rem;
+    width:100%;
+    margin-top: 60px;
+    display:grid;
+    grid-template-rows: $box-size $box-size;
+    grid-template-columns: $box-size $box-size $box-size $box-size $box-size;
+    grid-gap:17px 5px;
+}
+
+.game__box{
+    border:$box-outline;
+    color: white;
+    font-weight: 800;
+    // font-size: 2.375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    background-color: transparent;
+    
+}
+
+
+.keyboard__hack{
+    position:absolute;
+    top: -1000px;
+    opacity: 0;
+}
+
+.game__box.correct{
+    background-color: $box-color-correct;
+    transition: background-color 0.75s;
+}
+
+.game__box.incorrect{
+    background-color: $box-color-incorrect;
+    transition: background-color 0.5s;
+}
+
+.game__box.initial{
+    background-color: $box-color-correct;
+    transition: background-color 0.25s;
+}
+
+.desc{
+    margin-top:55px;
+    color:#fff;
+
+    &__heading{
+        color:$accent-color;
+        margin-bottom:10px;
+    }
+
+    &__text {
+        font-size:1.1rem;
+    }
+
+    &__text > &__state-change > a {
+        color:$accent-color;
+        text-decoration: none;
+        font-weight:600;
+    }
+}
+
+.hidden {
+    display:none;
+}
+
+.modal__container{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.761);
+    display:none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    width:100%;
+    max-width: 27.75rem;
+    background-color: $bg-color;
+    border-radius: 20px;
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:50px;
+
+    &__heading{
+        font-size:2rem;
+        color:white;
+    }
+}
+
+.input-container{
+    margin-top:20px;
+    display:flex;
+    flex-direction: column;
+    gap:17px;
+
+    & > input{
+        font-family: "Montserrat";
+        outline:none;
+        background-color: transparent;
+        outline:$box-outline;
+        border: none;
+        font-size:1.2rem;
+        font-weight:600;
+        padding:7px;
+        text-align: center;
+        color:white;
+
+    }
+}
+
+.login__form{
+    width:265px;
+}
+
+.btn-container{
+    margin-top:17px;
+    display:flex;
+    gap:17px;
+    
+}
+
+.btn{
+    flex:1;
+    padding:7px;
+    font-family: "Montserrat";
+    font-weight:700;
+    font-size:1.2rem;
+    border:none;
+    outline:$box-outline;
+    color:white;
+    background-color:$box-color-correct;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: $accent-color;
+}
+
+.modal > svg {
+    height:20px;
+    position:absolute;
+    right: 15px;
+    top: 15px;
+    fill:white;
+}
+
+.form__status{
+    text-align: center;
+    padding-top:10px;
+    font-weight:500;
+    color:white;
+}
+
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear
+{
+    display: none;
+}
+
+.side-menu-container{
+    position:absolute;
+    background-color: #272222;
+    width:100%;
+    height:90px;
+    bottom:0;
+    overflow: hidden;
+    display:flex;
+    justify-content: center;
+    transition: bottom 1s;
+}
+
+.side-menu{
+    height:100%;
+    width:367px;
+    display:flex;
+    align-items: center;
+    gap:20px;
+}
+
+.side-menu-container.hidden{
+    bottom: -90px;
+}
+
+// media queries
+@media only screen and (min-width: 760px) {
+
+    main{
+        max-width:27.695625rem;
+    }
+
+    .game__container{
+        font-size:3rem;
+    }
+
+    .score-stuff{
+        font-size: 1.5rem;
+    }
+
+    .desc {
+
+        &__heading{
+            font-size:2.63rem;
+        }
+
+        &__text {
+            font-size:1.35rem;
+        }
+    }
+
+    .side-menu > button {
+        font-size:1.4rem;
+        padding:10px;
+    }
+
+    .side-menu{
+        gap:30px;
+        width:427px;
+    }
+  }

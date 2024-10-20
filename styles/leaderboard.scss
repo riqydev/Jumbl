@@ -1,0 +1,118 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import "variables";
+
+body {
+    background-color: $bg-color;
+    height:100dvh;
+    display:flex;
+    justify-content: center;
+    font-family: "Montserrat";
+    color:white;
+    overflow-y: hidden;
+}
+
+main{
+    margin-top:100px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+
+.leaderboard{
+    margin-top:50px;
+    width:100%;
+    max-width: 31.25rem;
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    margin-bottom:150px;
+    
+    &__item{
+        padding:0.75rem;
+        background-color: transparent;
+        outline:$box-outline;
+        display:flex;
+        font-size:1.25rem;
+        
+        
+    }
+
+    &__place{
+        flex:1;
+        font-weight:700;
+    }
+
+    &__user{
+        flex:1;
+        text-align:left;
+        font-weight:500;
+        
+    }
+
+    &__score{
+        flex:1;
+        text-align: right;
+        font-weight:700;
+    }
+}
+
+.btn{
+    flex:1;
+    padding:7px;
+    font-family: "Montserrat";
+    font-weight:700;
+    font-size:1.2rem;
+    border:none;
+    outline:$box-outline;
+    color:white;
+    background-color:$box-color-correct;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: $accent-color;
+}
+
+.side-menu-container{
+    position:absolute;
+    background-color: #272222;
+    width:100%;
+    height:90px;
+    bottom:0;
+    overflow: hidden;
+    display:flex;
+    justify-content: center;
+    transition: bottom 1s;
+}
+
+.side-menu{
+    height:100%;
+    width:367px;
+    display:flex;
+    align-items: center;
+    gap:20px;
+}
+
+.side-menu-container.hidden{
+    bottom: -90px;
+}
+
+@media only screen and (min-width: 760px) {
+
+    .side-menu > button {
+        font-size:1.4rem;
+        padding:10px;
+    }
+
+    .side-menu{
+        gap:30px;
+        width:427px;
+    }
+  }
+
