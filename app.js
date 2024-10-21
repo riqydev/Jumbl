@@ -334,7 +334,9 @@ function closeModal(){
 // form stuff
 const form = document.querySelector(".login__form");
 const formStatusText = document.querySelector(".form__status");
-const backendURL = "https://jumbl-backend.onrender.com";
+
+const backendURL = window.config.BACKEND_URL;
+
 
 form.addEventListener("submit", async function(event) {
     event.preventDefault();

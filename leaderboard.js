@@ -1,5 +1,6 @@
 const leaderboard_container = document.querySelector(".leaderboard");
-const backendURL = "https://jumbl-backend.onrender.com";
+
+const backendURL = window.config.BACKEND_URL;
 
 const leaderboard_item_template = (rank, username, score) =>`<div class="leaderboard__item item">
             <p class="leaderboard__place">${rank}</p>
